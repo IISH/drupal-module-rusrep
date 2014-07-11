@@ -127,9 +127,10 @@ function datasets_intro() {
 }
 
 function datasets_search_country() {
-  global $username, $uri, $query, $scriptdir;
+  global $language, $username, $uri, $query, $scriptdir;
   $country = "";
   $nolimit = "";
+  // if ($language->language == 'ru') { // Russian version }
   if (isset($query['nolimit'])) {
     $nolimit = " -nolimit '" . $query['nolimit'] ."'";
   }
@@ -146,8 +147,9 @@ function datasets_search_country() {
 }
 
 function datasets_search_topic() {
-  global $username, $uri, $scriptdir, $query, $output;
+  global $language, $username, $uri, $scriptdir, $query, $output;
   $topic = "";
+  // if ($language->language == 'ru') { // Russian version }
   if (isset($query['topicuri'])) {
     $topic = " -topicuri '" . $query['topicuri'] ."'";
     $output = `$scriptdir/backend/indicators.cgi -uri '$uri' $topic`;
@@ -161,7 +163,8 @@ function datasets_search_topic() {
 }
 
 function datasets_search_indicator() {
-  global $username, $uri, $scriptdir, $query;
+  global $language, $username, $uri, $scriptdir, $query;
+  // if ($language->language == 'ru') { // Russian version }
   $indicator = "";
   if (isset($query['indicatoruri'])) {
     $indicator = " -indicatoruri '". $query['indicatoruri'] ."'";
@@ -178,21 +181,24 @@ function datasets_search_indicator() {
 }
 
 function datasets_search_combined() {
-  global $username, $uri, $scriptdir;
+  global $language, $username, $uri, $scriptdir;
+  // if ($language->language == 'ru') { // Russian version }
   $output = `$scriptdir/visualize/combinedsearchform.cgi -user '$username' -uri '$uri'`;
   return $output;
 }
 
 function datasets_search_results() {
-  global $username, $uri, $scriptdir;
+  global $language, $username, $uri, $scriptdir;
+  // if ($language->language == 'ru') { // Russian version }
   $querystring = $_SERVER['QUERY_STRING'];
   $output = `$scriptdir/backend/datasets.cgi -user '$username' -uri '$uri' -command '$querystring'`;
   return $output;
 }
 
 function datasets_visualize() {
-  global $scriptdir, $datasetdir, $query;
+  global $language, $scriptdir, $datasetdir, $query;
   $datasetfile = "";
+  // if ($language->language == 'ru') { // Russian version }
   if (isset($query['datasetfile'])) {
     $datasetfile = " -datasetfile '" . $query['datasetfile'] ."'";
   }
