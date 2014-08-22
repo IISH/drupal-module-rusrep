@@ -67,7 +67,7 @@ function datasets_menu() {
     'weight' => 11,
   );
   $items['datasets/indicators'] = array(
-    'title' => 'Indicators',
+    'title' => 'File catalogue',
     'page callback' => 'datasets_search_indicator',
     'access arguments' => array('access datasets'),
     'description' => 'Form with file upload',
