@@ -202,7 +202,7 @@ function datasets_search_results() {
 }
 
 function datasets_visualize() {
-    global $language, $scriptdir, $datasetdir, $query;
+    global $language, $scriptdir, $datasetdir, $query, $uri;
     $datasetfile = "";
     // if ($language->language == 'ru') { // Russian version }
     if (isset($query['datasetfile'])) {
@@ -211,8 +211,7 @@ function datasets_visualize() {
     if (isset($query['datasetname'])) {
         $datasetfile = " -datasetname '" . $query['datasetname'] ."'";
     }
-    #$output = `$scriptdir/visualize/statplanet.cgi $datasetfile`;
-    $output = `$scriptdir/showmap.cgi`;
+    $output = `$scriptdir/rr/showmap.cgi -uri '$uri'`;
     return $output;
 }
 
