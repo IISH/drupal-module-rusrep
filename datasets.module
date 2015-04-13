@@ -211,7 +211,7 @@ function datasets_visualize() {
     if (isset($query['datasetname'])) {
         $datasetfile = " -datasetname '" . $query['datasetname'] ."'";
     }
-    $output = `$scriptdir/rr/showmap.cgi -uri '$uri'`;
+    $output = `$scriptdir/showmap.cgi -uri '$uri'`;
     return $output;
 }
 
